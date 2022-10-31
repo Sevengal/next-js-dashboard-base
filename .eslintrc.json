@@ -1,10 +1,16 @@
 {
-  "extends": ["next", "next/core-web-vitals", "eslint:recommended"],
+  "extends": [
+    "eslint:recommended",
+    "next/core-web-vitals",
+    "prettier"
+  ],
   "globals": {
     "React": "readonly"
   },
   "rules": {
     // this one tells if the unused var has a _ it can be ignored
     "no-unused-vars": [1, { "args": "after-used", "argsIgnorePattern": "^_" }]
+//    "@typescript-eslint/no-unused-vars": "error",
+//    "@typescript-eslint/no-explicit-any": "error"
   }
 }
