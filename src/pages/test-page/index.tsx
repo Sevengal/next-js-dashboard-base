@@ -1,7 +1,7 @@
 import { NextPageWithLayout } from '../_app';
 import React, { ReactElement } from 'react';
 import PrimaryLayout from '../../layouts/primary/PrimaryLayout';
-import Api from '../../lib/services/http/Api';
+import Test from '../../components/Test';
 
 const TestPage: NextPageWithLayout = () => {
   return (
@@ -34,29 +34,6 @@ const TestPage: NextPageWithLayout = () => {
     </section>
   );
 };
-
-class Test extends React.Component<any, any> {
-  async componentDidMount() {
-    await Api.post(
-      'oauth/token',
-      {
-        grant_type: 'password',
-        client_id: process.env.NEXT_PUBLIC_CLIENT_ID,
-        client_secret: process.env.NEXT_PUBLIC_CLIENT_SECRET,
-        username: 'jesse',
-        password: 'aapje123',
-        scope: '*',
-      },
-      false
-    ).then((response) => {
-      console.log(response);
-    });
-  }
-
-  render() {
-    return <div>hello</div>;
-  }
-}
 
 export default TestPage;
 
