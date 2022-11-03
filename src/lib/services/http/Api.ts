@@ -202,7 +202,7 @@ class AxiosClient {
         if (config.url !== `oauth/token`) {
           // eslint-disable-next-line no-param-reassign,@typescript-eslint/ban-ts-comment
           // @ts-ignore
-          config.headers?.Authorization = this.getAccessHeaderString();
+          // config.headers!.Authorization = this.getAccessHeaderString();
           // config.headers!.Authorization = this.getAccessHeaderString();
         }
         return config;
