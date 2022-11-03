@@ -99,7 +99,8 @@ class AxiosClient {
   public post = <T, E extends ErrorResponse = ErrorResponse>(
     url: string,
     payload: any,
-    // token = true,
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    token = true,
     config: Axios.AxiosRequestConfig = {}
   ): Promise<Response<T> | Response<E>> => {
     return this.request<T, E>({
@@ -113,7 +114,8 @@ class AxiosClient {
   public patch = <T, E extends ErrorResponse = ErrorResponse>(
     url: string,
     payload: any,
-    // token = true,
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    token = true,
     config: Axios.AxiosRequestConfig = {}
   ): Promise<Response<T> | Response<E>> => {
     return this.request<T, E>({
@@ -127,7 +129,8 @@ class AxiosClient {
   public delete = <T, E extends ErrorResponse = ErrorResponse>(
     url: string,
     payload: any,
-    // token = true,
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    token = true,
     config: Axios.AxiosRequestConfig = {}
   ): Promise<Response<T> | Response<E>> => {
     return this.request<T, E>({
