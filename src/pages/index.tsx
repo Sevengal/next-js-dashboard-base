@@ -9,3 +9,5 @@ const HomePage: NextPageWithLayout = () => {
 HomePage.getLayout = function getLayout(page: ReactElement) {
   return <PrimaryLayout>{page}</PrimaryLayout>;
 };
+
+export default HomePage;
