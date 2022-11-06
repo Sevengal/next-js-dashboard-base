@@ -2,11 +2,11 @@ import * as Axios from 'axios';
 import { ErrorResponse } from './ErrorResponse';
 
 export class Response<T> {
-  private axiosResponse?: Axios.AxiosResponse<T>;
+  private readonly axiosResponse?: Axios.AxiosResponse<T>;
 
   private readonly status?: number;
 
-  private potentialBody?: T;
+  private readonly potentialBody?: T;
 
   public constructor(
     axiosResponse?: Axios.AxiosResponse<T>,

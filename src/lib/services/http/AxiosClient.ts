@@ -6,7 +6,6 @@ import { ResponseService } from './response/ResponseService';
 // import { StorageStore } from '../Storage/StorageStore';
 import { StoredJwt } from './jwt/StoredJwt';
 import { ResponseStatus } from './response/ResponseStatus';
-// import history from '../utils/history';
 import { PassportJwtObject } from './jwt/PassportJwtObject';
 import { StorageService } from '../Storage/StorageService';
 
@@ -17,9 +16,9 @@ class AxiosClient {
 
   private responseService: ResponseService<any, any>;
 
-  constructor() {
+  constructor(baseUrl?: string) {
     this.instance = Axios.default.create({
-      baseURL: process.env.NEXT_PUBLIC_API_URL,
+      baseURL: baseUrl || process.env.NEXT_PUBLIC_API_URL,
       // timeout: 1000,
       headers: {
         'Content-Type': 'application/vnd.api+json',
@@ -210,6 +209,4 @@ class AxiosClient {
     );
   };
 }
-
-const Api = new AxiosClient();
-export default Api;
+export default AxiosClient;
