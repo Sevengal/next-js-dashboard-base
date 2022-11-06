@@ -1,18 +1,22 @@
 import Head from 'next/head';
 import styles from './PrimaryLayout.module.scss';
-import React, { ReactNode } from 'react';
+import React from 'react';
+import Header from '../../components/ui/header/Header';
+import Footer from '../../components/ui/footer/Footer';
 
-export interface IPrimaryLayout {
-  children: ReactNode;
+interface PrimaryLayoutProps {
+  children: React.ReactNode;
 }
 
-const PrimaryLayout: React.FC<IPrimaryLayout> = ({ children }) => {
+const PrimaryLayout = ({ children }: PrimaryLayoutProps): JSX.Element => {
   return (
     <>
       <Head>
         <title>Primary Layout Example</title>
       </Head>
+      <Header />
       <main className={styles.main}>{children}</main>
+      <Footer />
     </>
   );
 };

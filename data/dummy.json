@@ -1,0 +1,29 @@
+{
+    "barbers": [
+        {
+            "id": "awd21r42f2h1j4j124j1",
+            "name": "barbier ahmed",
+            "rating": "4.5"
+        },
+        {
+            "id": "awd21r42f241j47124j1",
+            "name": "barbier jafar",
+            "rating": "3.5"
+        },
+        {
+            "id": "awd21r42d2f4j4j124j1",
+            "name": "barbier erdem",
+            "rating": "4"
+        },
+        {
+            "id": "awd21rfwf241j4j124j1",
+            "name": "barbier safak",
+            "rating": "5"
+        },
+        {
+            "id": "awd21r42f241j2g124j1",
+            "name": "barbier teken",
+            "rating": "3.7"
+        }
+    ]
+}

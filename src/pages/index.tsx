@@ -1,17 +1,11 @@
+import type { ReactElement } from 'react';
+import type { NextPageWithLayout } from './_app';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 
 import PrimaryLayout from '../layouts/primary/PrimaryLayout';
-import styles from './index.module.scss';
-import { NextPageWithLayout } from './page';
 
-const Home: NextPageWithLayout = () => {
-  return (
-    <section className={styles.main}>
-      <h1 className={styles.title}>
-        Welcome to <a href="https://nextjs.org">Next.js!</a>
-      </h1>
-    </section>
-  );
+const HomePage: NextPageWithLayout = () => {
+  return <p>hello world</p>;
 };
 
 export async function getStaticProps({ locale }: Record<string, string>) {
@@ -23,8 +17,8 @@ export async function getStaticProps({ locale }: Record<string, string>) {
   };
 }
 
-export default Home;
-
-Home.getLayout = (page) => {
+HomePage.getLayout = function getLayout(page: ReactElement) {
   return <PrimaryLayout>{page}</PrimaryLayout>;
 };
+
+export default HomePage;

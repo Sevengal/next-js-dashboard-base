@@ -4,7 +4,7 @@ interface ButtonProps {
   children: React.ReactNode;
 }
 
-class Button extends React.Component<ButtonProps, any> {
+class Button extends React.Component<ButtonProps, unknown> {
   render(): React.ReactNode {
     const { children } = this.props;
     return (
