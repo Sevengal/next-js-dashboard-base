@@ -1,6 +1,10 @@
 import AxiosClient from '../http/AxiosClient';
 import { ErrorResponse } from '../http/response/ErrorResponse';
-import { Response } from '../http/response/Response';
+// import { Response } from '../http/response/Response';
+
+export interface ProductResponse {
+  products: Product[];
+}
 
 interface Product {
   id: number;
@@ -24,10 +28,14 @@ class ProductService {
   }
 
   public getProducts = async (): Promise<
-    Response<Product> | Response<ErrorResponse>
+    ProductResponse | ErrorResponse | null
   > => {
-    return await this.axiosClient.get<Product>('/products');
+    const response = await this.axiosClient.get<ProductResponse>('/products');
+    if (response.getStatus() === 200) {
+      return response.getData();
+    }
+    return null;
   };
 }
 
-export default ProductService;
+export default new ProductService();
