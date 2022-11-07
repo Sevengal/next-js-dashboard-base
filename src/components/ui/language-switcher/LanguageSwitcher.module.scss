@@ -1,12 +1,28 @@
 .language-switcher {
-  background: black;
-}
-
-.language-switcher__options {
-  display: flex;
-}
-
-.language-switcher__option {
   color: black;
   text-decoration: none;
+}
+
+.language-switcher .language-switcher__toggle {
+  color: black;
+  text-decoration: none;
+}
+
+.language-switcher__menu {
+  width: fit-content;
+}
+
+// .language-switcher__menu-option {
+// }
+
+.language-switcher__link {
+  color: black;
+  text-decoration: none;
+  display: block;
+  padding: 0 1rem;
+
+  &:hover {
+    color: black;
+    background-color: #f8f8f8;
+  }
 }
