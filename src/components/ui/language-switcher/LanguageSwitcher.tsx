@@ -20,7 +20,7 @@ function LocaleSwitcher() {
           id="languageSwitcher"
           className={styles['language-switcher__toggle']}
         >
-          {activeLocale}
+          {}
         </Dropdown.Toggle>
 
         <Dropdown.Menu className={styles['language-switcher__menu']}>

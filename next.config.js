@@ -7,6 +7,16 @@ const nextConfig = {
     locales: ['nl', 'en'],
     defaultLocale: 'nl',
   },
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'dummyjson.com',
+        port: '',
+        pathname: '/**',
+      },
+    ],
+  },
 };
 
 module.exports = nextConfig;
