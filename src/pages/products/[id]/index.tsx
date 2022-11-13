@@ -1,16 +1,17 @@
-import React, { ReactElement } from 'react';
-import PrimaryLayout from '../../../layouts/primary/PrimaryLayout';
-import { NextPageWithLayout } from '../../_app';
-import { Container } from 'react-bootstrap';
+import PrimaryLayout from '@layouts/primary/PrimaryLayout';
+import NextPageWithLayout from '@custom-types/NextPageWithLayout';
+import ProductCard from '@features/product/ProductCard/ProductCard';
+import Product from '@custom-types/product/Product';
+import ProductService from '@services/api/ProductService';
 import styles from '../ProductPage.module.scss';
-import ProductCard from '../../../common/components/ProductCard/ProductCard';
-import { Product } from '../../../lib/services/api/ProductService';
 
-import ProductService from '../../../lib/services/api/ProductService';
+import React, { ReactElement } from 'react';
+import { Container } from 'react-bootstrap';
 
 interface ProductPageProps {
   products?: Product[];
 }
+
 interface StaticPathsParams {
   locales: string[];
 }

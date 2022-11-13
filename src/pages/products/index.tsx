@@ -1,13 +1,11 @@
-import { NextPageWithLayout } from '../_app';
-import React, { ReactElement, useEffect } from 'react';
-
-import PrimaryLayout from '../../layouts/primary/PrimaryLayout';
-import ProductService, {
-  ProductResponse,
-} from '../../lib/services/api/ProductService';
-
-import ProductCard from '../../common/components/ProductCard/ProductCard';
+import NextPageWithLayout from '@custom-types/NextPageWithLayout';
+import ProductService from '@services/api/ProductService';
+import ProductResponse from '@custom-types/product/ProductResponse';
+import ProductCard from '@features/product/ProductCard/ProductCard';
+import PrimaryLayout from '@layouts/primary/PrimaryLayout';
 import styles from './ProductPage.module.scss';
+
+import React, { ReactElement, useEffect } from 'react';
 import { Container } from 'react-bootstrap';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 
