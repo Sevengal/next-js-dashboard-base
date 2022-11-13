@@ -1,0 +1,30 @@
+/*
+    Z-INDEX
+*/
+// This file is to keep track of different z-indexes throughout the project
+// INSTRUCTIONS:
+// Step 1. Add the new name for the element that needs a z-index in the z-index variable
+// Step 2. Call the 'z-index' mixin in the designated Vue file with the declared name as a variable
+
+// Sources:
+// - https://www.sitepoint.com/better-solution-managing-z-index-sass/
+// - https://jonsuh.com/blog/organizing-z-index-with-sass/
+// - https://material.io/guidelines/material-design/elevation-shadows.html#elevation-shadows-elevation-android
+@function z($layer) {
+  @if not map-has-key($z-layers, $layer) {
+    @error 'No layer found for `#{$layer}` in $z-layers map. Property omitted.';
+  }
+
+  @return map-get($z-layers, $layer);
+}
+
+
+/*
+    Z-INDEX VARIABLES
+*/
+$z-layers: (
+  'app-header':               1,
+  'app-modal':                8,
+  'app-toast':                9,
+  'app-notification':         10,
+);

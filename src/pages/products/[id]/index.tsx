@@ -11,8 +11,14 @@ import ProductService from '../../../lib/services/api/ProductService';
 interface ProductPageProps {
   products?: Product[];
 }
+interface StaticPathsParams {
+  locales: string[];
+}
 
-export async function getStaticPaths() {
+/*
+ * GET PATHS TO PRE RENDER AS STATIC PAGES
+ */
+export async function getStaticPaths({ locales }: StaticPathsParams) {
   // When this is true (in preview environments) don't
   // prerender any static pages
   // (faster builds, but slower initial page load)
@@ -29,9 +35,14 @@ export async function getStaticPaths() {
   // Get the paths we want to prerender based on posts
   // In production environments, prerender all pages
   // (slower builds, but faster initial page load)
-  const paths = products?.products?.map((product) => ({
-    params: { id: String(product.id) },
-  }));
+  const paths = products?.products
+    .map((product) =>
+      locales.map((locale) => ({
+        params: { id: String(product.id) },
+        locale,
+      }))
+    ) // flat to avoid nested array
+    .flat();
 
   // { fallback: false } means other routes should 404
   return { paths, fallback: false };
@@ -56,7 +67,6 @@ export const getStaticProps = async ({
 };
 
 const ProductPage: NextPageWithLayout<ProductPageProps> = ({ products }) => {
-  console.log('sate', products);
   return (
     <Container className={styles['products-page']}>
       <div className={styles['products-page__products-row']}>
