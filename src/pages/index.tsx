@@ -1,11 +1,12 @@
 import type { ReactElement } from 'react';
 import type { NextPageWithLayout } from './_app';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
-
+import { useTranslation } from 'next-i18next';
 import PrimaryLayout from '../layouts/primary/PrimaryLayout';
 
 const HomePage: NextPageWithLayout = () => {
-  return <p>hello world</p>;
+  const { t } = useTranslation(['home']);
+  return <p>{t('header.title')}</p>;
 };
 
 export async function getStaticProps({ locale }: Record<string, string>) {

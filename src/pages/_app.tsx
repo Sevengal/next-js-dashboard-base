@@ -2,8 +2,10 @@ import type { ReactElement, ReactNode } from 'react';
 import type { NextPage } from 'next';
 import type { AppProps } from 'next/app';
 import { appWithTranslation } from 'next-i18next';
-import 'bootstrap/dist/css/bootstrap.min.css';
 import SSRProvider from 'react-bootstrap/SSRProvider';
+
+import 'bootstrap/dist/css/bootstrap.min.css';
+import '../assets/styles/styles.scss';
 
 // eslint-disable-next-line @typescript-eslint/ban-types
 export type NextPageWithLayout<P = {}, IP = P> = NextPage<P, IP> & {

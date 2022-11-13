@@ -1,8 +1,11 @@
 import AxiosClient from '../http/AxiosClient';
-import { ErrorResponse } from '../http/response/ErrorResponse';
-import { Response } from '../http/response/Response';
+import { ResponseStatus } from '../http/response/ResponseStatus';
 
-interface Product {
+export interface ProductResponse {
+  products: Product[];
+}
+
+export interface Product {
   id: number;
   title: string;
   description: string;
@@ -12,7 +15,7 @@ interface Product {
   stock: number;
   brand: string;
   category: string;
-  thumbnail: unknown;
+  thumbnail: string;
   images: unknown[];
 }
 
@@ -23,11 +26,25 @@ class ProductService {
     this.axiosClient = new AxiosClient('https://dummyjson.com');
   }
 
-  public getProducts = async (): Promise<
-    Response<Product> | Response<ErrorResponse>
-  > => {
-    return await this.axiosClient.get<Product>('/products');
+  public getProducts = async (): Promise<ProductResponse | null> => {
+    const response = await this.axiosClient.get<ProductResponse>('/products');
+    if (response.getStatus() === ResponseStatus.OK) {
+      return response.getData() as ProductResponse;
+    }
+    return null;
+  };
+
+  public getProduct = async (
+    id: string | number
+  ): Promise<ProductResponse | null> => {
+    const response = await this.axiosClient.get<ProductResponse>(
+      `/products/${id}`
+    );
+    if (response.getStatus() === ResponseStatus.OK) {
+      return response.getData() as ProductResponse;
+    }
+    return null;
   };
 }
 
-export default ProductService;
+export default new ProductService();
