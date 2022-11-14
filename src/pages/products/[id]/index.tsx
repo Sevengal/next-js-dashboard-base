@@ -7,6 +7,7 @@ import styles from '../ProductPage.module.scss';
 
 import React, { ReactElement } from 'react';
 import { Container } from 'react-bootstrap';
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 
 interface ProductPageProps {
   products?: Product[];
@@ -51,10 +52,12 @@ export async function getStaticPaths({ locales }: StaticPathsParams) {
 
 export const getStaticProps = async ({
   params,
+  locale,
 }: {
   params: {
     id?: string;
   };
+  locale: string;
 }) => {
   const id = params.id;
 
@@ -63,6 +66,7 @@ export const getStaticProps = async ({
   return {
     props: {
       products: [product],
+      ...(await serverSideTranslations(locale, ['home', 'products'])),
     },
   };
 };

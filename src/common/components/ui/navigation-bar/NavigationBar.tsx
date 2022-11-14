@@ -1,24 +1,26 @@
-import {
-  getNavigationRoutes,
-  NavigationRouteRenderLocation,
-} from '@constants/navigation-routes';
+import { NAVIGATION_ROUTES } from '@constants/navigation-routes';
 import LanguageSwitcher from '@components/ui/language-switcher/LanguageSwitcher';
 
 import { Container, Nav, Navbar } from 'react-bootstrap';
 import Link from 'next/link';
+import NavigationRoute from '@custom-types/navigation-routes/NavigationRoute';
 
-const NavigationBar = (): JSX.Element => {
+interface NavigationBarProps {
+  routes: NavigationRoute[];
+}
+
+const NavigationBar = ({ routes }: NavigationBarProps): JSX.Element => {
   return (
     <Container fluid>
       <Container>
         <Navbar>
-          <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
+          <Navbar.Brand as={Link} href={NAVIGATION_ROUTES.home.getPath()}>
+            LOGO
+          </Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="me-auto">
-              {getNavigationRoutes(
-                NavigationRouteRenderLocation.NAVIGATION_BAR
-              ).map((navigationRoute) => (
+              {routes.map((navigationRoute) => (
                 <Link
                   className="nav-link"
                   key={navigationRoute.name}

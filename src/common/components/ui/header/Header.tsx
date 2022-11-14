@@ -1,4 +1,3 @@
-import NavigationBar from '@components/ui/navigation-bar/NavigationBar';
 import styles from './Header.module.scss';
 
 import { Container, Row, Col } from 'react-bootstrap';
@@ -9,7 +8,6 @@ const Header = (): JSX.Element => {
 
   return (
     <>
-      <NavigationBar />
       <Container fluid className={styles.hero}>
         <Row className="justify-content-center h-100">
           <Col className="text-center">
