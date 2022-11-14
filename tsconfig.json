@@ -14,8 +14,18 @@
     "isolatedModules": true,
     "jsx": "preserve",
     "incremental": true,
-    // used for absolute imports
-//    "baseUrl": "./"
+    "baseUrl": "./",
+    "paths": {
+      "@components/*": ["src/common/components/*"],
+      "@constants/*": ["src/common/constants/*"],
+      "@hooks/*": ["src/common/hooks/*"],
+      "@layouts/*": ["src/common/layouts/*"],
+      "@services/*": ["src/common/services/*"],
+      "@stores/*": ["src/common/stores/*"],
+      "@styles/*": ["src/common/styles/*"],
+      "@custom-types/*": ["src/common/types/*"],
+      "@features/*": ["src/features/*"],
+    }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
   "exclude": ["node_modules"]

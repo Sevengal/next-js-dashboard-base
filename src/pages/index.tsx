@@ -1,8 +1,9 @@
+import PrimaryLayout from '@layouts/primary/PrimaryLayout';
+import type NextPageWithLayout from '@custom-types/NextPageWithLayout';
+
 import type { ReactElement } from 'react';
-import type { NextPageWithLayout } from './_app';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { useTranslation } from 'next-i18next';
-import PrimaryLayout from '../layouts/primary/PrimaryLayout';
 
 const HomePage: NextPageWithLayout = () => {
   const { t } = useTranslation(['home']);
